@@ -68,10 +68,9 @@ public class Program {
 			System.out.print("Quantity: ");
 			int quantity = sc.nextInt();
 			
-			// Produto que será usado como atributo para o pedido do item
 			Product product = new Product(productName,productPrice);
 			
-			// Pedido do item
+			// Order Item
 			OrderItem item = new OrderItem(quantity,productPrice,product);
 			
 			order.addItem(item);

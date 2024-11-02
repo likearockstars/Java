@@ -23,6 +23,9 @@ public class Program {
 		Scanner sc = new Scanner(System.in);
 		
 		
+		int 
+		
+		
 		// Client
 		System.out.println("Enter cliente data:");
 		
