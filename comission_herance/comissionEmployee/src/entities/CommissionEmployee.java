@@ -16,13 +16,13 @@ public class CommissionEmployee extends Object {
 		String firstName, 
 		String lastName, 
 		String socialSecurityNumber,
-		Double grossSales,
+		int i,
 		Double commissionRate) {
 		
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.socialSecurityNumber = socialSecurityNumber;
-		setGrossSales(grossSales); // valida e armazena as vendas brutas
+		setGrossSales(i); // valida e armazena as vendas brutas
 		setCommissionRate(commissionRate); // valida e armazena a taxa de comissão
 	}
 	
