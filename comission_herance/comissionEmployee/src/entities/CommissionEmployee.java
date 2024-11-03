@@ -11,18 +11,21 @@ public class CommissionEmployee extends Object {
 	private Double grossSales; // vendas brutas semanais
 	private Double commissionRate; // porcentagem da comissão
 	
+	// Construtor sem argumentos
+	public CommissionEmployee() {
+	}
 	// Construtor de cinco argumentos
 	public CommissionEmployee(
 		String firstName, 
 		String lastName, 
 		String socialSecurityNumber,
-		int i,
+		Double grossSales,
 		Double commissionRate) {
 		
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.socialSecurityNumber = socialSecurityNumber;
-		setGrossSales(i); // valida e armazena as vendas brutas
+		setGrossSales(grossSales); // valida e armazena as vendas brutas
 		setCommissionRate(commissionRate); // valida e armazena a taxa de comissão
 	}
 	

@@ -11,7 +11,7 @@ public class ComissionEmployeeTest {
 		
 		// Instancia o objeto ComissionEmployee
 		CommissionEmployee commissionEmployee = new CommissionEmployee("Sue","Jones","222-22-2222",
-				100000, 0.6);
+				100000.00, 0.6);
 		
 		// Obtém os dados do empregado comissionado
 		
