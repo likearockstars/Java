@@ -51,7 +51,7 @@ public class Account {
 	
 	public void withdraw(double amount) {
 		
-		balance += amount - 10.0;
+		balance -= amount + 5.00;
 	}
 	
 }
