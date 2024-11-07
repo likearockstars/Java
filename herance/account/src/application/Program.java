@@ -5,6 +5,8 @@ import java.util.Scanner;
 import entities.BussinessAccount;
 import entities.Account;
 import entities.SavingsAccount;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Program {
 	
@@ -14,7 +16,9 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		Account acc = new Account(1001,"Alex",0.0);
+		List<Account> accounts = new ArrayList<>();
+		
+		// Account acc = new Account(1001,"Alex",0.0);
 		BussinessAccount bacc = new BussinessAccount(1002,"Maria",0.0,500.00);
 
 		// Up casting
@@ -51,22 +55,49 @@ public class Program {
 		}
 		
 		
-		Account account1 = new Account(1001,"Alex",1000.00);
-		account1.withdraw(200.00);
-		System.out.println("Balance = " + String.format("%.2f", account1.getBalance()));
+		// Account account1 = new Account(1001,"Alex",1000.00);
+		// account1.withdraw(200.00);
+		// System.out.println("Balance = " + String.format("%.2f", account1.getBalance()));
 		
 		System.out.println();
 		
-		Account account2 = new SavingsAccount(1002,"Maria",1000.00,0.21);
-		account2.withdraw(200.00);
-		System.out.println("Balance = " + String.format("%.2f",account2.getBalance()));
+		// Account account2 = new SavingsAccount(1002,"Maria",1000.00,0.21);
+		// account2.withdraw(200.00);
+		// System.out.println("Balance = " + String.format("%.2f",account2.getBalance()));
+		
+		// System.out.println();
+		
+		// Account account3 = new BussinessAccount(1003,"Carla",1000.00,500.00);
+		// account3.withdraw(200.00);
+		//System.out.println("Balance = " + String.format("%.2f",account3.getBalance()));
+		
+		
+		accounts.add(new SavingsAccount(1000,"Alex",5000.00,0.01));
+		accounts.add(new BussinessAccount(1002,"Maria",1000.0,400.00));
+		accounts.add(new SavingsAccount(1004,"Bob",300.0,0.01));
+		
+		double sum = 0.0;
+		
+		for(Account acc : accounts) {
+			
+			sum += acc.getBalance();
+		}
 		
 		System.out.println();
 		
-		Account account3 = new BussinessAccount(1003,"Carla",1000.00,500.00);
-		account3.withdraw(200.00);
-		System.out.println("Balance = " + String.format("%.2f",account3.getBalance()));
+		System.out.printf("Total balance: %.2f\n",sum);
 		
+		for(Account acc: accounts) {
+			
+			acc.deposit(10.0);
+		}
+		
+		System.out.println();
+		
+		for(Account acc: accounts) {
+			
+			System.out.printf("Total balance: %.2f\n",acc.getBalance());
+		}
 		sc.close();
 	}
 
