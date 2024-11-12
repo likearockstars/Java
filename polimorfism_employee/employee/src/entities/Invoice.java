@@ -19,6 +19,8 @@ public class Invoice implements Payable {
 		
 		this.partNumber = partNumber;
 		this.partDescription = partDescription;
+		setQuantity(quantity);
+		setPricePerItem(pricePerItem);
 	}
 	
 	// Configura o número de peçãs

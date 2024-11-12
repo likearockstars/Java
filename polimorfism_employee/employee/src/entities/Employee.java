@@ -1,8 +1,10 @@
 package entities;
 
+import entities.interfaces.Payable;
+
 // Superclasse abstrata employee
 
-public abstract class Employee {
+public abstract class Employee  implements Payable{
 	
 	private String firstName;
 	private String lastName;
@@ -60,8 +62,8 @@ public abstract class Employee {
 				getLastName(),getSocialSecurityNumber());
 	}
 	
-	// Método abstrato sobrescrito por subclasses concretas
-	public abstract double earnings();
-	
+	// Nota: não implementamos o método getPaymentAmount aqui, mas esta
+	// classe deve ser declarada como abstract para evitar um erro de compilação.
+
 	
 }

@@ -33,9 +33,9 @@ public class BasePlusCommissionEmployee extends CommissionEmployee{
 	
 	// calcula os vencimentos: sobrescreve o método earnigs em CommissionEmployee
 	@Override
-	public double earnings() {
+	public double getPaymentAmount() {
 		
-		return getBaseSalary() + super.earnings();
+		return getBaseSalary() + super.getCommissionRate() * super.getGrossSales();
 	}
 	
 	// Retorna a representacao do objeto BasePlusCommissionEmployee

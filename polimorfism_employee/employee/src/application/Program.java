@@ -24,10 +24,10 @@ public class Program {
 		
 		System.out.println("Employees processed individually:\n");
 				
-		System.out.printf("%s\n%s: $%.2f\n\n",salariedEmployee.toString(),"earned",salariedEmployee.earnings());
-		System.out.printf("%s\n%s: $%.2f\n\n",hourlyEmployee.toString(),"earned",hourlyEmployee.earnings());
-		System.out.printf("%s\n%s: $%.2f\n\n",commissionEmployee.toString(),"earned",commissionEmployee.earnings());
-		System.out.printf("%s\n%s: $%.2f\n\n",basePlusCommissionEmployee.toString(),"earned",basePlusCommissionEmployee.earnings());
+		System.out.printf("%s\n%s: $%.2f\n\n",salariedEmployee.toString(),"earned",salariedEmployee.getPaymentAmount());
+		System.out.printf("%s\n%s: $%.2f\n\n",hourlyEmployee.toString(),"earned",hourlyEmployee.getPaymentAmount());
+		System.out.printf("%s\n%s: $%.2f\n\n",commissionEmployee.toString(),"earned",commissionEmployee.getPaymentAmount());
+		System.out.printf("%s\n%s: $%.2f\n\n",basePlusCommissionEmployee.toString(),"earned",basePlusCommissionEmployee.getPaymentAmount());
 			
 				
 		// cria um array Employee de quatro elementos
@@ -57,7 +57,7 @@ public class Program {
 				
 			}
 			
-			System.out.printf("eanerd: $%,.2f\n\n", currentEmployee.earnings());
+			System.out.printf("eanerd: $%,.2f\n\n", currentEmployee.getPaymentAmount());
 		}
 		
 		// Obtém o nome do tipo de cada objeto no array employee
