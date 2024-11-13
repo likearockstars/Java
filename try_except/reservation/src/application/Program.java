@@ -16,6 +16,7 @@ public class Program {
 		Reservation reservation = new Reservation(room,checkIn,checkOut);
 		
 		System.out.println(reservation.duration());
+		System.out.println(reservation.toString());
 		
 		System.out.println();
 	}

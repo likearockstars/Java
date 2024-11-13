@@ -1,6 +1,7 @@
 package model.entities;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 public class Reservation {
@@ -8,6 +9,8 @@ public class Reservation {
 	private Integer roomNumber;
 	private LocalDate checkIn;
 	private LocalDate checkOut;
+	
+	private static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	
 	public Reservation() {
 	}
@@ -49,6 +52,19 @@ public class Reservation {
 		
 		this.checkIn = checkIn;
 		this.checkIn = checkOut;
+	}
+	
+	@Override
+	public String toString() {
+		
+		return "Room " + 
+		getRoomNumber() + 
+		", check-in: " 
+		+ dtf.format(checkIn) +
+		", check-out: " +
+		dtf.format(checkOut) +
+		", " + duration() + " nights";
+				
 	}
 
 }
