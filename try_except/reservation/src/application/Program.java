@@ -56,8 +56,10 @@ public class Program {
 			
 			 	System.out.println("Invalid date format. Please enter the date in the format dd/MM/yyyy.");
 			 	System.out.println("Error details " + e.getMessage());
+	    // Tratando a exceção personalizada
 		}catch(DomainException e) {
 			
+			// Estamos capturando a mensagem que passamos ao instanciar a exceção (DomainException)
 			System.out.println("Error in reservation: " + e.getMessage());
 			
 		}

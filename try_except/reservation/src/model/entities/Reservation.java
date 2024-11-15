@@ -73,6 +73,9 @@ public class Reservation {
 	}
 	
 	// Atualiza as datas de check-in e check-out.
+	// Usamos o throws porque não estamos tratando a exceção, e sim propagando-a, deixando que a aplicação principal
+	// seja responsável por resolvê-la.
+
 	public void updateDate(LocalDate checkIn, LocalDate checkOut) throws DomainException {
 		
 		// Cria uma instância com a data atual
@@ -80,13 +83,13 @@ public class Reservation {
 		
 		// Verifica se as datas informadas são do passado (erro de data)
 		if (checkIn.isBefore(now) || checkOut.isBefore(now)) {
-			// Exceção para argumentos inválido
+			// Exceção personalizada
 			throw new DomainException("Reservation dates for update must be future");
 		}
 		
 		// Verifica se a data de check-in é posterior à data de check-out (erro de sequência de datas)
 		if (checkIn.isAfter(checkOut)) {
-			// Exceção para argumentos inválido
+			// Exceção personalizada
 			throw new DomainException("Reservation dates for update must be future");
 		}
 		
