@@ -63,12 +63,29 @@ public class Reservation {
 		return reservedDays;
 	}
 	
-	// Atualiza as datas de chegada é datas de saída.
+	// Atualiza as datas de check-in e check-out.
 	public void updateDate(LocalDate checkIn, LocalDate checkOut) {
 		
+		// Cria uma instância com a data atual
+		LocalDate now = LocalDate.now();
+		
+		// Verifica se as datas informadas são do passado (erro de data)
+		if (checkIn.isBefore(now) || checkOut.isBefore(now)) {
+			// Exceção para argumentos inválido
+			throw new IllegalArgumentException("Rerservation dates for update must be future");
+		}
+		
+		// Verifica se a data de check-in é posterior à data de check-out (erro de sequência de datas)
+		if (checkIn.isAfter(checkOut)) {
+			// Exceção para argumentos inválido
+			throw new IllegalArgumentException("Rerservation dates for update must be future");
+		}
+		
+		// Atualiza as datas de check-in e check-out com os valores fornecidos
 		this.checkIn = checkIn;
 		this.checkOut = checkOut;
 	}
+
 	
 	// Imprime a instância (Reservation) em formato de string
 	@Override

@@ -2,6 +2,7 @@ package application;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
@@ -21,17 +22,46 @@ public class Program {
 		// Pegando um número inteiro válido (número do quarto)
 		Integer numberRoom = getNumber("Number room: ",sc);
 		
-		System.out.print("Check-in: ");
-		LocalDate checkIn = LocalDate.parse(sc.next(),dtf);
-		
-		System.out.print("Check-out: ");
-		LocalDate checkOut = LocalDate.parse(sc.next(),dtf);
-		
-		
-		Reservation reservation = new Reservation(numberRoom, checkIn, checkOut);
-		
-		System.out.println(reservation.toString());
-		
+		//
+		try {
+			System.out.print("Check-in (dd/MM/yyyy): ");
+			LocalDate checkIn = LocalDate.parse(sc.next(),dtf);
+			
+			System.out.print("Check-out (dd/MM/yyyy): ");
+			LocalDate checkOut = LocalDate.parse(sc.next(),dtf);
+			
+			
+			Reservation reservation = new Reservation(numberRoom, checkIn, checkOut);
+			
+			System.out.println(reservation.toString());
+			
+			System.out.println();
+			
+			// Update data
+			System.out.println("Enter data to update the reservation:");
+			
+			System.out.print("Check-in (dd/MM/yyyy): ");
+			checkIn = LocalDate.parse(sc.next(),dtf);
+			
+			System.out.print("Check-out (dd/MM/yyyy): ");
+			checkOut = LocalDate.parse(sc.next(),dtf);
+			
+			// Method to update data
+			reservation.updateDate(checkIn, checkOut);
+			System.out.println(reservation.toString());
+			
+		// Exception to (LocalDate.parse)
+		}catch(DateTimeParseException e) {
+			
+			 	System.out.println("Invalid date format. Please enter the date in the format dd/MM/yyyy.");
+			 	System.out.println("Error details " + e.getMessage());
+			 	
+		// Exception to (check-in or check-out)
+		}catch(IllegalArgumentException e) {
+			
+			System.out.println("Error in reservation: " + e.getMessage());
+		}
+	
 		
 		
 		sc.close();
@@ -39,7 +69,7 @@ public class Program {
 	
 	}
 	
-	// Método que garante um número (Integer) para o usuário (wrapper class)
+	// Método que garante um número (Integer) para o usuário 
 	public static Integer getNumber(String msg, Scanner sc) {
 		
 	    // Loop infinito que irá garantir um número inteiro
