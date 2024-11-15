@@ -6,65 +6,79 @@ import java.time.temporal.ChronoUnit;
 
 public class Reservation {
 	
-	private Integer roomNumber;
+	// Atributos
+	private Integer numberRoom;
 	private LocalDate checkIn;
 	private LocalDate checkOut;
 	
+	// Instanciando o DateTimeFormatter com o formato brasileiro
+	// Além disso, será private e statico para ser o mesmo para todos os objetos
 	private static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	
+	
+	// Construtor sem argumentos
 	public Reservation() {
 	}
 	
-	public Reservation(Integer roomNumber, LocalDate checkIn, LocalDate checkOut) {
+	// Construtor com argumentos
+	public Reservation(Integer numberRoom, LocalDate checkIn, LocalDate checkOut) {
 		
-		this.roomNumber = roomNumber;
+		this.numberRoom = numberRoom;
 		this.checkIn = checkIn;
 		this.checkOut = checkOut;
 	}
 	
-	public void setRoomNumber(Integer roomNumber) {
+	// Configura o number room
+	public void setNumberRoom(Integer numberRoom) {
 		
-		this.roomNumber = roomNumber;
+		this.numberRoom = numberRoom;
+		
 	}
 	
-	public Integer getRoomNumber() {
+	// Obtém o number room
+	public Integer getNumberRoom() {
 		
-		return roomNumber;
+		return numberRoom;
 	}
 	
+	// Obtém a data de check in
 	public LocalDate getCheckIn() {
 		
 		return checkIn;
 	}
 	
+	// Obtém a data de check out
 	public LocalDate getCheckOut() {
 		
 		return checkOut;
 	}
 	
-	public Integer duration() {
+	// Calcula a duração entre a data de chegada e a data de saída
+	
+	public int duration() {
 		
-		// Calculamos a diferença entre as datas em dias e a convertimos para um número inteiro
-		return  (int) ChronoUnit.DAYS.between(checkIn, checkOut);
+		// Calcula a diferença de dias entre as duas data
+		int reservedDays = (int) ChronoUnit.DAYS.between(checkIn,checkOut);
+		
+		return reservedDays;
 	}
 	
-	public void updateDates(LocalDate checkIn, LocalDate checkOut) {
+	// Atualiza as datas de chegada é datas de saída.
+	public void updateDate(LocalDate checkIn, LocalDate checkOut) {
 		
 		this.checkIn = checkIn;
-		this.checkIn = checkOut;
+		this.checkOut = checkOut;
 	}
 	
+	// Imprime a instância (Reservation) em formato de string
 	@Override
 	public String toString() {
 		
-		return "Room " + 
-		getRoomNumber() + 
-		", check-in: " 
-		+ dtf.format(checkIn) +
-		", check-out: " +
-		dtf.format(checkOut) +
+		return "Room " + getNumberRoom() 
+		+ ", check-in: " + dtf.format(checkIn) +
+		", check-out: " + dtf.format(checkOut) +
 		", " + duration() + " nights";
-				
+		
 	}
 
 }
