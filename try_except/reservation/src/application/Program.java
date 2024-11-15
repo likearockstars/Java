@@ -6,8 +6,9 @@ import java.time.format.DateTimeParseException;
 import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
-
 import model.entities.Reservation;
+import model.exceptions.DomainException;
+
 
 public class Program {
 	
@@ -55,13 +56,22 @@ public class Program {
 			
 			 	System.out.println("Invalid date format. Please enter the date in the format dd/MM/yyyy.");
 			 	System.out.println("Error details " + e.getMessage());
-			 	
-		// Exception to (check-in or check-out)
-		}catch(IllegalArgumentException e) {
+		}catch(DomainException e) {
 			
 			System.out.println("Error in reservation: " + e.getMessage());
+			
 		}
+		
+			 	
+		// Exception to (check-in or check-out)
+		/*
+		 	}catch(IllegalArgumentException e) {
+			
+			System.out.println("Error in reservation: " + e.getMessage());
+			}
 	
+		 */
+		
 		
 		
 		sc.close();

@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
+import model.exceptions.DomainException;
+
 public class Reservation {
 	
 	// Atributos
@@ -21,7 +23,14 @@ public class Reservation {
 	}
 	
 	// Construtor com argumentos
-	public Reservation(Integer numberRoom, LocalDate checkIn, LocalDate checkOut) {
+	public Reservation(Integer numberRoom, LocalDate checkIn, LocalDate checkOut) throws DomainException {
+		
+		// Verifica se a data de check-in é posterior à data de check-out (erro de sequência de datas)
+		if (checkIn.isAfter(checkOut)) {
+				// Exceção para argumentos inválido
+				throw new DomainException("Reservation dates for update must be future");
+		}
+		
 		
 		this.numberRoom = numberRoom;
 		this.checkIn = checkIn;
@@ -64,7 +73,7 @@ public class Reservation {
 	}
 	
 	// Atualiza as datas de check-in e check-out.
-	public void updateDate(LocalDate checkIn, LocalDate checkOut) {
+	public void updateDate(LocalDate checkIn, LocalDate checkOut) throws DomainException {
 		
 		// Cria uma instância com a data atual
 		LocalDate now = LocalDate.now();
@@ -72,13 +81,13 @@ public class Reservation {
 		// Verifica se as datas informadas são do passado (erro de data)
 		if (checkIn.isBefore(now) || checkOut.isBefore(now)) {
 			// Exceção para argumentos inválido
-			throw new IllegalArgumentException("Rerservation dates for update must be future");
+			throw new DomainException("Reservation dates for update must be future");
 		}
 		
 		// Verifica se a data de check-in é posterior à data de check-out (erro de sequência de datas)
 		if (checkIn.isAfter(checkOut)) {
 			// Exceção para argumentos inválido
-			throw new IllegalArgumentException("Rerservation dates for update must be future");
+			throw new DomainException("Reservation dates for update must be future");
 		}
 		
 		// Atualiza as datas de check-in e check-out com os valores fornecidos
