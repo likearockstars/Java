@@ -67,7 +67,7 @@ public class Account {
 		balance -= amount;
 	}
 
-	public void Validatewithdraw(Double amount) throws  BussinessException {
+	private void Validatewithdraw(Double amount) throws  BussinessException {
 		// Verifica se o valor a ser sacado é maior que o saldo atual
 		if (amount > getBalance()) {
 			throw new BussinessException("Withdraw error: Not enough balance");
