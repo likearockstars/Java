@@ -3,8 +3,9 @@ package application;
 import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
+
 import model.entities.Account;
-import model.exceptions.DomainException;
+import model.exceptions.BussinessException;
 
 public class Program {
 	
@@ -42,7 +43,7 @@ public class Program {
 			System.out.println("New balance: " + String.format("%.2f",account.getBalance()));
 			
 			
-		}catch(DomainException e) {
+		}catch(BussinessException e) {
 			
 			System.out.println(e.getMessage());
 			

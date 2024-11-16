@@ -1,7 +1,6 @@
 package model.entities;
 
-
-import model.exceptions.DomainException;
+import model.exceptions.BussinessException;
 
 public class Account {
 	
@@ -62,21 +61,21 @@ public class Account {
 		this.balance += amount;
 	}
 	
-	public void withdraw(Double amount) throws DomainException {
+	public void withdraw(Double amount) throws  BussinessException {
 		
 		Validatewithdraw(amount);
 		balance -= amount;
 	}
 
-	public void Validatewithdraw(Double amount) throws DomainException {
+	public void Validatewithdraw(Double amount) throws  BussinessException {
 		// Verifica se o valor a ser sacado é maior que o saldo atual
 		if (amount > getBalance()) {
-			throw new DomainException("Withdraw error: Not enough balance");
+			throw new BussinessException("Withdraw error: Not enough balance");
 		}
 		
 		// Verifica se o valor a ser sacado é maior que o limite de saque
 		if (amount > getWithdrawLimit()) {
-			throw new DomainException("Withdraw error: The amount exceeds withdraw limit");
+			throw new BussinessException("Withdraw error: The amount exceeds withdraw limit");
 		}
 		
 		

@@ -1,13 +1,13 @@
 package model.exceptions;
 
-public class DomainException extends Exception {
+public class BussinessException extends Exception {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	public DomainException(String msg) {
+	public BussinessException(String msg) {
 		super(msg);
 	}
 
