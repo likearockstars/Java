@@ -1,6 +1,5 @@
 package application;
 
-import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Calendar;
 import java.util.Date;
@@ -16,7 +15,7 @@ public class Program {
 		
 		// Cria uma instância de Calendar
 		Calendar cal = Calendar.getInstance();	
-		// Define a data para o Calendar usando a data 'd'
+		// Define a data para o Calendar usando a data 'd01'
 		cal.setTime(d01);
 		// Adiciona dez dias à data
 		cal.add(Calendar.DAY_OF_MONTH, 10);
