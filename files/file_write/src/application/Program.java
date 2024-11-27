@@ -10,6 +10,7 @@ public class Program {
 		
 		String[] lines = new String[] {"Good Morning","Good Afternoon","Good night"};
 		
+
 		String path = "C:\\program-java\\files\\file_write\\out.txt";
 		
 		try(BufferedWriter bw = new BufferedWriter(new FileWriter(path)) ) {

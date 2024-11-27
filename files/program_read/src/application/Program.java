@@ -36,7 +36,7 @@ public class Program {
 		// Instânciamos uma lista de produto
 		List<Product> list = new ArrayList<>();
 		
-		System.out.println("Enter file path: ");
+		System.out.print("Enter file path: ");
 		// Pedindo o diretório que iremos manipualr
 		String sourceFileStr = sc.nextLine();
 		
